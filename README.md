@@ -1,6 +1,10 @@
 # RZNU-Lab
-FER RZNU (Service Oriented Computing) course 16/17 lab assignments 
-[Course site] (https://www.fer.unizg.hr/predmet/rznu)
+FER RZNU (Service Oriented Computing) course 16/17 lab assignments
+
+[Course site (Croatian)] (https://www.fer.unizg.hr/predmet/rznu)
+
+[Course site (English)] (https://www.fer.unizg.hr/en/course/sercom)
+
 ---
 ## Lab assignments
 1. REST API
