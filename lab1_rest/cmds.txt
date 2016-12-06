@@ -1,0 +1,8 @@
+Run tests with coverage:
+coverage run --source='./project/apps/' project/manage.py test -v 2
+
+Generate report:
+coverage html
+
+Start server:
+python project/manage.py runserver
