@@ -7,7 +7,7 @@ router = routers.DefaultRouter()
 router.register(r'photos', PhotoViewSet)
 router.register(r'users', UserViewSet)
 
-users_router = domains_router = routers.NestedSimpleRouter(router, r'users', lookup='user')
+users_router  = routers.NestedSimpleRouter(router, r'users', lookup='user')
 users_router.register(r'photos', PhotoViewSet, base_name='user-photos')
 
 
