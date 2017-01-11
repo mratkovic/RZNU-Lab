@@ -19,7 +19,7 @@ from chat import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.about, name='about'),
-    url(r'^new/$', views.new_room, name='new_room'),
+    url(r'^$', views.home, name='home'),
+    url(r'^join/$', views.join_room, name='join_room'),
     url(r'^(?P<label>[\w-]{,50})/$', views.chat_room, name='chat_room'),
 ]

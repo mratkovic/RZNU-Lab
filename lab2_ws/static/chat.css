@@ -15,3 +15,7 @@ p.deck a {
     font-size: 90%;
     color: #999;
 }
+
+#out {
+    height: 800px;
+}

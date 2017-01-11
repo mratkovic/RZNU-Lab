@@ -1,6 +1,4 @@
 from django.db import models
-
-from django.db import models
 from django.utils import timezone
 
 
@@ -23,7 +21,7 @@ class Message(models.Model):
     timestamp = models.DateTimeField(default=timezone.now, db_index=True)
 
     def __unicode__(self):
-        return '[{timestamp}]\t{handle}\t{message}'.format(**self.as_dict())
+        return '[{timestamp}]\t{handle}\t{message}'.format(self.timestamp, self.handle, self.message)
 
     @property
     def formatted_timestamp(self):

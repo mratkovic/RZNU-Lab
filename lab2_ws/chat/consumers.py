@@ -1,4 +1,3 @@
-import re
 import json
 import logging
 from channels import Group
@@ -23,10 +22,8 @@ def ws_connect(message):
         logging.debug('ws room does not exist label=%s', label)
         return
 
-        logging.debug('chat connect room=%s client=%s:%s', room.label, message['client'][0], message['client'][1])
-
-    # TODO: mozda treba jos  channel_layer=message.channel_layer
-    Group(Room.room_id_from_label(label), channel_layer=message.channel_layer).add(message.reply_channel)
+    logging.debug('chat connect room=%s client=%s:%s', room.label, message['client'][0], message['client'][1])
+    Group(Room.room_id_from_label(label)).add(message.reply_channel)
     message.channel_session['room'] = room.label
 
 
@@ -49,7 +46,7 @@ def ws_receive(message):
         data = json.loads(message['text'])
 
     except ValueError:
-        logging.debug("ws message isn't json text=%s", text)
+        logging.debug("ws message isn't json text=%s", message['text'])
         return
 
     if set(data.keys()) != set(('handle', 'message')):
@@ -59,7 +56,7 @@ def ws_receive(message):
     if data:
         logging.debug('chat message room=%s handle=%s message=%s', room.label, data['handle'], data['message'])
         m = room.messages.create(**data)
-        Group(Room.room_id_from_label(label), channel_layer=message.channel_layer).send({'text': json.dumps(m.as_dict())})
+        Group(Room.room_id_from_label(label)).send({'text': json.dumps(m.as_dict())})
 
 
 @channel_session
@@ -67,7 +64,7 @@ def ws_disconnect(message):
     try:
         label = message.channel_session['room']
         _ = Room.objects.get(label=label)
-        Group(Room.room_id_from_label(label), channel_layer=message.channel_layer).discard(message.reply_channel)
+        Group(Room.room_id_from_label(label)).discard(message.reply_channel)
 
     except (KeyError, Room.DoesNotExist):
         pass
