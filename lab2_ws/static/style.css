@@ -6206,7 +6206,7 @@ button.close {
     overflow: auto;
     height: 100%;
 }
-.panel-info {
+.panel-primary {
     height: 85%;
 }
 
@@ -6219,4 +6219,55 @@ html,body,.col-md-12,.row {
   height:100%;
 }
 
+hr.style-eight {
+margin: 0 auto 5px;
+padding: 0;
+border: none;
+border-top: medium solid #428bca;
+color: #428bca;
+border-width:1px;
+text-align: center; }
 
+hr.style-eight:after {
+content: "";
+display: inline-block;
+position: relative;
+top: -0.97em;
+font-size: 1.5em;
+padding: 0.25em;
+background: white;}
+
+html,body {
+	height:100%;
+}
+
+.flex {
+	display: flex;
+    display: -webkit-flex;
+    flex-grow:1;
+    align-self: stretch;
+}
+
+.flex-col {
+    display: flex;
+    display: -webkit-flex;
+    flex: 1 100%;
+	flex-flow: column nowrap;
+}
+
+.flex-down {
+	display: flex;
+    -webkit-flex: 2;
+    flex: 2;
+}
+#handle {
+    width: 20%
+}
+
+#message {
+    width: 70%
+}
+
+#post-btn {
+    width: 9%
+}

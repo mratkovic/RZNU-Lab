@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>BOOTSTRAP CHAT EXAMPLE</title>
+
     {% load staticfiles %}
+    <title>Room: {{ room.label }}</title>
     <link href='{% static "style.css" %}' rel="stylesheet" />
     <script type="text/javascript" src='{% static "jquery-1.12.1.min.js" %}'></script>
     <script type="text/javascript" src='{% static "chat.js" %}'></script>
-      <link rel="stylesheet" href="{% static 'normalize.css' %}">
-  <link rel="stylesheet" href="{% static 'skeleton.css' %}">
-  <link rel="stylesheet" href="{% static 'chat.css' %}">
 
 </head>
     <body style="font-family:Verdana">
@@ -27,24 +25,20 @@
 
                 <br /><br />
                 <div class="col-md-12">
-                    <div class="panel panel-info">
+                    <div class="panel panel-primary flex-col">
                         <div class="panel-heading">
-                            RECENT CHAT HISTORY
+                            ChatRoom '{{ room.label }}' messages
                         </div>
                         <div class="panel-body" id="chat-list">
                             <ul class="media-list" id="chat-element-list">
                                 {% for message in messages %}
                                  <li id="chat-element" class="media">
-                                    <div class="media-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <br />
-                                                <div id="chat-element-body">
-                                                    {{ message.message }}
-                                                </div>
-                                                <small class="text-muted" id="chat-element-details"> {{ message.handle }} {{ message.formatted_timestamp }}<</small>
-                                                <hr/>
-                                            </div>
+                                    <div class="media">
+
+                                        <div class="media-body">
+                                            <small class="text-muted" id="chat-element-details"> {{message.formatted_timestamp}}</small>
+                                            <p id="chat-element-body"> {{ message.handle }} {{message.message}} </p>
+                                            <hr class="style-eight">
                                         </div>
                                     </div>
                                 </li>
@@ -54,10 +48,10 @@
                                     <div class="media-body">
                                         <div class="media">
                                             <div class="media-body">
-                                                <br />
-                                                <div id="chat-element-body"></div>
+
                                                 <small class="text-muted" id="chat-element-details"></small>
-                                                <hr/>
+                                                <p id="chat-element-body"></p>
+                                                <hr class="style-eight">
                                             </div>
                                         </div>
                                     </div>
@@ -67,15 +61,15 @@
 
                         </div>
                         <div class="panel-footer">
-                            <div class="input-group">
-                                <form id="chatform">
 
+                                <form id="chatform">
+                                    <div class="form-horizontal">
                                     <input id="handle" type="text" placeholder="handle">
                                     <input id="message" type="text" placeholder="message">
-                                    <button type="submit" id="go" class="button button-primary">Post</button>
+                                    <button id="post-btn" type="submit" class="btn-primary">Post</button>
+                                    </div>
 
                                 </form>
-                            </div>
                         </div>
                     </div>
                 </div>

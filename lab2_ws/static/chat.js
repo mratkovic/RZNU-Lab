@@ -10,10 +10,10 @@ $(function() {
         var data = JSON.parse(message.data)
         var chat = $("#chat-element").first().clone().appendTo("#chat-element-list").removeClass('hidden');
         var body = chat.find("#chat-element-body")
-        body.text(data.message)
+        body.text(data.handle + data.message)
 
         var details = chat.find("#chat-element-details")
-        details.text(data.handle + " " + data.timestamp)
+        details.text(data.timestamp)
         data.remove
 
         var objDiv = $("#chat-list");

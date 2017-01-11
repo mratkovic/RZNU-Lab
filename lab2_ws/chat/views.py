@@ -16,7 +16,7 @@ def join_room(request):
 
 def chat_room(request, label):
     room, created = Room.objects.get_or_create(label=label)
-    return render(request, "chat/room.html", {
+    return render(request, "chat/chat.html", {
         'room': room,
         'messages': room.messages.order_by('timestamp'),
     })
