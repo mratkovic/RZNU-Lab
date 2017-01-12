@@ -8,7 +8,7 @@ FER RZNU (Service Oriented Computing) course 16/17 lab assignments
 ---
 ## Lab assignments
 1. REST API
-2. TODO
+2. Chat service using WebSockets
 
 ---
 Assigment subdirectories contain `pdf` with task text and `README.md` with short descriptions
