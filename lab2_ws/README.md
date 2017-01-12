@@ -16,3 +16,11 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+## Example:
+
+### Create/join room screen
+<img src="./example_imgs/mk_room.png" width="600">
+
+### Chat
+<img src="./example_imgs/demo_room.png" width="550">
