@@ -37,7 +37,10 @@
 
                                         <div class="media-body">
                                             <small class="text-muted" id="chat-element-details"> {{message.formatted_timestamp}}</small>
-                                            <p id="chat-element-body"> {{ message.handle }} {{message.message}} </p>
+                                            <div id="chat-element-body">
+                                                <span id="chat-handle"> {{ message.handle}} </span>
+                                                <span id="msg-body"> {{message.message}} </span>
+                                            </div>
                                             <hr class="style-eight">
                                         </div>
                                     </div>
@@ -50,7 +53,10 @@
                                             <div class="media-body">
 
                                                 <small class="text-muted" id="chat-element-details"></small>
-                                                <p id="chat-element-body"></p>
+                                                <div id="chat-element-body">
+                                                <span id="chat-handle"> </span>
+                                                <span id="msg-body">  </span>
+                                                </div>
                                                 <hr class="style-eight">
                                             </div>
                                         </div>
