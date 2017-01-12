@@ -17,7 +17,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## Examples:
+## Example:
 
 ### Create/join room screen
 <img src="./example_imgs/mk_room.png" width="600">
